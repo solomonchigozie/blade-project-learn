@@ -55,8 +55,26 @@ class HomeController extends Controller
         // dd($product);
 
         //query Scope ==> coming from the model
-        $product = Product::Range()->get();
+        // $product = Product::Range()->get();
+
+        //soft deletes
+        // $product = Product::find(20)->delete();
+
+        #retreive soft deleted information
+        // $product =Product::withTrashed()->find(1);
+        // $product =Product::withTrashed()->get();
+        // $product =Product::onlyTrashed()->get();      
+        // dd($product);
+
+        //restore soft deleted data
+        // $product =Product::withTrashed()->find(1)->restore();  
+        // dd($product);
+
+        //permanently delete data
+        $product =Product::withTrashed()->find(20)->forceDelete();  
         dd($product);
+
+        
 
         return view('welcome');
     }
