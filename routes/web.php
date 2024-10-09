@@ -20,4 +20,8 @@ Route::post('/file-upload', [FileUploadController::class, 'store'])->name('file.
 Route::get('/file-download', [FileUploadController::class, 'download'])->name('file.download');
 
 
-Route::get('/customer', [CustomerController::class, 'index'])->name('customer.index');
+//always define extra routes at the top
+Route::get('/customers/trash', [CustomerController::class,'trashIndex'])->name('customers.trash');
+Route::get('/customers/restore/{customers}', [CustomerController::class,'restore'])->name('customers.restore');
+Route::delete('/customers/trash/{customers}', [CustomerController::class,'forceDestroy'])->name('customers.force.destroy');
+Route::resource('customers', CustomerController::class);

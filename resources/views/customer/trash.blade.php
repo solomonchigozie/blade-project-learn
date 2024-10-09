@@ -5,14 +5,14 @@
 
     <div class="row container-fluid py-5 justify-content-center">
         <div class="col-12 py-4 text-center">
-            <h3>Customers</h3>
+            <h3>Trash</h3>
         </div>
         <div class="col-md-9 border">
             
 
             <div class="row my-4">
                 <div class="col-2"> 
-                    <a href="{{ route('customers.create') }}" class="btn btn-primary py-2">Add Customer</a>
+                    <a href="{{ route('customers.index') }}" class="btn btn-primary py-2">Go back</a>
                 </div>
 
                 <div class="col-5">
@@ -25,7 +25,7 @@
                     </form>
                 </div>
 
-                <div class="col-3">
+                <div class="col">
                     <form action="{{ route('customers.index') }}" method="get" class="form-order">
                         <div class="form-group">
                             <select name="order" id="sort" class="form-control" onchange="$('.form-order').submit()">
@@ -36,11 +36,6 @@
                         </div>
                     </form>
                 </div>
-
-                <div class="col">
-                    <a href="{{ route('customers.trash') }}" class="btn btn-secondary">Trash</a>
-                </div>
-
             </div>
 
             <table class="table">
@@ -65,9 +60,9 @@
                         <td>{{ $customer->phone }}</td>
                         <td>{{ $customer->account_number }}</td>
                         <td>
-                            <a href="{{ route('customers.edit', $customer->id) }}">Edit</a>
-                            <a href="{{ route('customers.show', $customer->id) }}">Show</a>
-                            <form action="{{  route('customers.destroy', $customer->id ) }}" method="post">
+                            <a href="{{ route('customers.restore', $customer->id) }}">Restore</a>
+                            <!-- <a href="{{ route('customers.show', $customer->id) }}">Delete</a> -->
+                            <form action="{{  route('customers.force.destroy', $customer->id ) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit">Delete</button>
