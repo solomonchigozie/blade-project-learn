@@ -68,4 +68,5 @@ class FileUploadController extends Controller
         HandleFile::delete(public_path($file->file_path)); //use handlefile to delete file from folder
         $file->delete(); //delete from database
     }
+    
 }

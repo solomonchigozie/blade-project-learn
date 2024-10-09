@@ -22,12 +22,6 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <header class="jumbotron text-center text-white" style="background-color: #007bff;">
-    <h1 class="display-4">Welcome to [Team Name]</h1>
-    <p class="lead">Passionate, Driven, and Ready for the Game!</p>
-    <a href="#contact" class="btn btn-primary btn-lg">Join Us</a>
-  </header>
 
 
     @yield('contents')

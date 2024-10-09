@@ -71,8 +71,8 @@ class HomeController extends Controller
         // dd($product);
 
         //permanently delete data
-        $product =Product::withTrashed()->find(20)->forceDelete();  
-        dd($product);
+        // $product =Product::withTrashed()->find(20)->forceDelete();  
+        // dd($product);
 
         
 
